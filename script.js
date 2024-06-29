@@ -31,6 +31,7 @@ function checkMatch(){
             matchedCards.push(card1, card2);
             if(matchedCards.length === numbers.length){
                 alert('Congratulations! You won!');
+                setTimeout(resetGame, 3000);
             }
         }else{
             card1.classList.remove('flipped');
@@ -50,6 +51,14 @@ function initGame(){
         const card = createCard(number);
         gameBoard.append(card);
     })
+}
+function resetGame(){
+    const gameBoard = document.querySelector('.game-board');
+    gameBoard.innerHTML = ''
+    flippedCards = [];
+    matchedCards = [];
+    canFlip = true;
+    initGame()
 }
 
 initGame()
